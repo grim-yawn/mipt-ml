@@ -1,4 +1,5 @@
 ## MIPT-ML
+[![CircleCI](https://circleci.com/gh/WeitBelou/mipt-ml/tree/master.svg?style=svg)](https://circleci.com/gh/WeitBelou/mipt-ml/tree/master)
 
 ### Requirements
 `pipenv` installed and in PATH
