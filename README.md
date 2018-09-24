@@ -7,10 +7,11 @@
 
 #### To init environment:
 ```bash
-pipenv install
+make sync
 ```
 
-#### To convert notebook to HTML:
+#### To convert notebooks to HTML:
 ```bash
-pypenv run jupyter nbconvert --to html "notebooks/<notebook>"
+make
 ```
+HTML files will be written to dist directory
