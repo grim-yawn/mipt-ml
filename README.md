@@ -13,6 +13,6 @@ make sync
 
 #### To convert notebooks to HTML:
 ```bash
-make
+make html
 ```
 HTML files will be written to dist directory
