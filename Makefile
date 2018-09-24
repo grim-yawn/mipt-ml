@@ -1,12 +1,9 @@
 .PHONY: all
-all: build
+all: sync html
 
 .PHONY: sync
 sync:
 	pipenv sync
-
-.PHONY: build
-build: sync html
 
 .PHONY: html
 html:
