@@ -7,6 +7,6 @@ sync:
 
 .PHONY: html
 html:
-	pipenv run jupyter nbconvert notebooks/*.ipynb
+	pipenv run jupyter nbconvert --execute notebooks/*.ipynb
 	mkdir -p dist
 	mv notebooks/*.html dist/
