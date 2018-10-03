@@ -22,7 +22,7 @@ run: build
 
 .PHONY: html
 html: build
-	mkdir -p dist && chmod a+rw dist
+	mkdir -p dist && chmod +rwx dist
 	docker run --rm \
 	-v $(PWD)/dist:/home/$(DOCKER_USER)/dist:rw \
 	$(IMAGE) jupyter nbconvert --execute notebooks/*.ipynb --output-dir dist
