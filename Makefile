@@ -11,11 +11,11 @@ build:
 .PHONY: run
 run: build
 	docker run -p 8888:8888 \
-	-v $(PWD)/notebooks:/app/notebooks:rw \
+	-v $(PWD)/notebooks:/home/appuser:rw \
 	$(IMAGE)
 
 .PHONY: html
 html: build
 	docker run --rm \
-	-v $(PWD)/dist:/app/dist:rw \
+	-v $(PWD)/dist:/home/appuser/dist:rw \
 	$(IMAGE) jupyter nbconvert --execute notebooks/*.ipynb --output-dir dist
