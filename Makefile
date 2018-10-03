@@ -10,12 +10,14 @@ build:
 
 .PHONY: run
 run: build
-	docker run --rm -it $(IMAGE):$(TAG)
+	docker run -p 8888:8888 \
+	-v $(PWD)/notebooks:/app/notebooks:rw \
+	$(IMAGE):$(TAG) \
+	jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
 
 .PHONY: html
-html:
+html: build
 	docker run --rm \
-	-v $(PWD)/dist:/home/appuser/dist \
+	-v $(PWD)/dist:/app/dist:rw \
 	$(IMAGE):$(TAG) \
-	pipenv run jupyter nbconvert --execute notebooks/*.ipynb && \
-	mv notebooks/*.html dist/
+	jupyter nbconvert --execute notebooks/*.ipynb --output-dir dist
