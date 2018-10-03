@@ -6,22 +6,19 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-
       - restore_cache:
-        keys:
-          - v1-{{ .Branch }}
-        paths:
-          - /caches/app.tar
+          keys:
+            - v1-{{ .Branch }}
+          paths:
+            - /caches/app.tar
       - run:
           name: Load Docker image layer cache
           command: |
             set +o pipefail
             docker load -i /caches/app.tar | true
-
       - run:
           name: Build docker image
           command: make build
-
       - run:
           name: Save Docker image layer cache
           command: |
@@ -31,10 +28,9 @@ jobs:
           key: v1-{{ .Branch }}-{{ epoch }}
           paths:
             - /caches/app.tar
-
-      - run: 
-        name: Convert notebooks to html
-        command: make html
+      - run:
+          name: Convert notebooks to html
+          command: make html
       - store_artifacts:
           path: dist
           destination: notebooks
