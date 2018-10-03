@@ -12,12 +12,10 @@ build:
 run: build
 	docker run -p 8888:8888 \
 	-v $(PWD)/notebooks:/app/notebooks:rw \
-	$(IMAGE) \
-	jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+	$(IMAGE)
 
 .PHONY: html
 html: build
 	docker run --rm \
 	-v $(PWD)/dist:/app/dist:rw \
-	$(IMAGE) \
-	jupyter nbconvert --execute notebooks/*.ipynb --output-dir dist
+	$(IMAGE) jupyter nbconvert --execute notebooks/*.ipynb --output-dir dist
