@@ -22,7 +22,9 @@ run: build
 
 .PHONY: html
 html: build
-	mkdir -p dist && chmod +rwx dist
-	docker run --rm \
-	-v $(PWD)/dist:/home/$(DOCKER_USER)/dist:rw \
+	docker run --name html_gen \
 	$(IMAGE) jupyter nbconvert --execute notebooks/*.ipynb --output-dir dist
+	# NOTE(ikosolapov): docker cp instead of volume mounting to fix permission denied
+	# error for non-root user in container and root user on host.
+	docker cp html_gen:/home/$(DOCKER_USER)/dist .
+	docker rm html_gen
