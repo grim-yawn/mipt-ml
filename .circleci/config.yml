@@ -17,6 +17,9 @@ jobs:
             set +o pipefail
             docker load -i /caches/app.tar | true
       - run:
+          name: Install make
+          command: apk add make
+      - run:
           name: Build docker image
           command: make build
       - run:
