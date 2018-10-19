@@ -16,8 +16,8 @@ jobs:
           name: Convert notebooks to html
           command: make html
       - run:
-          name: Submit solution
-          command: make submit
+          name: Debug dir structure
+          command: ls -la
       - store_artifacts:
           path: results
           destination: results
