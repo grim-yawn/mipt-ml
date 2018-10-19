@@ -49,4 +49,4 @@ html: build datasets
 	docker run --rm \
 	--mount type=volume,src=datasets,dst=/home/$(DOCKER_USER)/datasets,readonly \
 	--mount type=volume,src=results,dst=/home/$(DOCKER_USER)/results \
-	$(IMAGE) jupyter nbconvert --execute notebooks/**/*.ipynb --output-dir results
+	$(IMAGE) jupyter nbconvert --execute notebooks/*.ipynb --output-dir results
