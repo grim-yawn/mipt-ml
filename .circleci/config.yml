@@ -17,7 +17,7 @@ jobs:
           command: make html
       - run:
           name: Submit solution
-          command: make submit
+          command: ls -la results && make submit
       - store_artifacts:
           path: results
           destination: results
