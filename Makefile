@@ -19,7 +19,6 @@ submit: html submit_titanic
 
 .PHONY: submit_titanic
 submit_titanic: build
-	chown ${DOCKER_UID} $(PWD)/results
 	docker run --rm \
 	-e KAGGLE_USERNAME=$(KAGGLE_USERNAME) \
 	-e KAGGLE_KEY=$(KAGGLE_KEY) \
