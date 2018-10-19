@@ -13,10 +13,10 @@ ARG NB_USER=appuser
 ARG NB_UID=1000
 RUN useradd -m -u ${NB_UID} -s /sbin/nologin ${NB_USER}
 
-USER ${NB_USER}
+# USER ${NB_USER}
 WORKDIR /home/${NB_USER}
 
 # Copy notebooks
 COPY ./notebooks ./notebooks
 
-CMD ["jupyter", "notebook", "--ip", "0.0.0.0"]
+CMD ["jupyter", "notebook", "--ip", "0.0.0.0", "--allow-root"]

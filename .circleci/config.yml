@@ -16,5 +16,5 @@ jobs:
           name: Convert notebooks to html
           command: make html
       - store_artifacts:
-          path: dist
+          path: results
           destination: notebooks

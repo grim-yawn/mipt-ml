@@ -6,7 +6,12 @@ __pycache__/
 *$py.class
 
 # Jupyter Notebook
-.ipynb_checkpoints
+# All (.) dot directories: .cache, .config, etc.
+notebooks/**/.*
 
 # Build artifacts
 dist/
+
+# Datasets and results
+notebooks/results/**/*.csv
+notebooks/datasets/**/*.csv
