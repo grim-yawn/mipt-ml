@@ -15,6 +15,14 @@ jobs:
       - run:
           name: Convert notebooks to html
           command: make html
+      - run:
+          name: Submit solution
+          command: make submit
+      - run:
+          name: Copy results
+          command: >
+            docker run scratch --name results --mount type=volume,src=results,dst=/results,readonly &&
+            docker copy results:/results results
       - store_artifacts:
           path: results
-          destination: notebooks
+          destination: results
