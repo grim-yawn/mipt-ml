@@ -40,6 +40,6 @@ html: build
 	-e KAGGLE_USERNAME=$(KAGGLE_USERNAME) \
 	-e KAGGLE_KEY=$(KAGGLE_KEY) \
 	$(IMAGE) jupyter nbconvert --execute notebooks/*.ipynb --output-dir results
-	docker cp html_gen:/home/$(DOCKER_USER)/results $(PWD)/results
+	docker cp html_gen:/home/$(DOCKER_USER)/results $(PWD)
 	docker rm html_gen
 
