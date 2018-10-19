@@ -5,9 +5,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install make
-          command: apk add make
-      - run:
           name: Build docker image
           command: make build
       - run:
