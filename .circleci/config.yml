@@ -21,7 +21,7 @@ jobs:
       - run:
           name: Copy results
           command: >
-            docker run scratch --name results --mount type=volume,src=results,dst=/results,readonly &&
+            docker run alpine --name results --mount type=volume,src=results,dst=/results,readonly &&
             docker copy results:/results results
       - store_artifacts:
           path: results
