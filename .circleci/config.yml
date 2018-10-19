@@ -20,8 +20,8 @@ jobs:
           command: make submit
       - run:
           name: Copy results
-          command: >
-            docker run alpine --name results --mount type=volume,src=results,dst=/results,readonly &&
+          command: |
+            docker run --name results --mount type=volume,src=results,dst=/results,readonly alpine
             docker copy results:/results results
       - store_artifacts:
           path: results
