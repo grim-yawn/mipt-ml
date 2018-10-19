@@ -22,7 +22,7 @@ jobs:
           name: Copy results
           command: |
             docker run --name results --mount type=volume,src=results,dst=/results,readonly alpine
-            docker copy results:/results results
+            docker cp results:/results results
       - store_artifacts:
           path: results
           destination: results
