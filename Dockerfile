@@ -6,7 +6,7 @@ RUN pip install pipenv
 # Install requirements
 COPY Pipfile /tmp/Pipfile
 COPY Pipfile.lock /tmp/Pipfile.lock
-RUN set -ex && cd /tmp && pipenv install --deploy --system
+RUN cd /tmp && pipenv install --deploy --system
 
 # Set up user for mybinder
 ARG NB_USER=appuser
