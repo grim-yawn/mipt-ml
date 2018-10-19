@@ -7,7 +7,7 @@ __pycache__/
 
 # Jupyter Notebook
 # All (.) dot directories: .cache, .config, etc.
-notebooks/**/.*
+notebooks/.*
 
 # Build artifacts
 dist/
