@@ -15,8 +15,12 @@ RUN useradd -m -u ${NB_UID} -s /sbin/nologin ${NB_USER}
 
 # USER ${NB_USER}
 WORKDIR /home/${NB_USER}
+USER ${NB_USER}
 
-# Copy notebooks
+COPY scripts/entrypoint.sh entrypoint.sh
+
 COPY ./notebooks ./notebooks
 
-CMD ["jupyter", "notebook", "--ip", "0.0.0.0", "--allow-root"]
+ENTRYPOINT [ "./entrypoint.sh" ]
+
+CMD ["jupyter", "notebook", "--ip", "0.0.0.0"]

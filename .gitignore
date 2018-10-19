@@ -13,5 +13,4 @@ notebooks/.*
 dist/
 
 # Datasets and results
-notebooks/results/**/*.csv
-notebooks/datasets/**/*.csv
+results
