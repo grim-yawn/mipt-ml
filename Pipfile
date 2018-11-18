@@ -10,6 +10,7 @@ numpy = "==1.15.1"
 scikit-learn = "==0.19.2"
 seaborn = "==0.9.0"
 kaggle = "*"
+osfclient = "*"
 
 [dev-packages]
 
